@@ -1,9 +1,10 @@
 import torch
 
-from utils.cleaners import Cleaner
-from utils.tokenizer import Tokenizer
+from .cleaners import Cleaner
+from .tokenizer import Tokenizer
 
-def prepare_text(text: str)->str:
+
+def prepare_text(text: str) -> torch.Tensor:
     if not ((text[-1] == '.') or (text[-1] == '?') or (text[-1] == '!')):
         text = text + '.'
     cleaner = Cleaner('english_cleaners', True, 'en-us')
